@@ -30,7 +30,7 @@ export default class App extends Component {
     return (
       <div id="app-wrapper">
         <CityEntry formSubmission={this.formSubmission} />
-        {/* will use ternary operator to do conditional rendering */
+        {
           this.state.error ?
             <h3>Oops! That's embarrassing. Try another city name, perhaps?</h3> :
             this.state.cityObj.lat ?
