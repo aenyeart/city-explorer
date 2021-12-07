@@ -12,7 +12,8 @@ To run this app on your local machine, you will need to obtain your own API keys
 
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+### Data Flow Diagram
+![Data Flow Diagram](./public/img/data-flow.jpg?raw=true "Data Flow Diagram")
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -20,6 +21,7 @@ To run this app on your local machine, you will need to obtain your own API keys
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Credit and Collaborations
+
 - Data flowchart created in collaboration with [Jacob Choi](https://github.com/Choij12)
 
 Name of feature: Set up React repo & API keys
@@ -36,6 +38,12 @@ Actual time needed to complete: 6h30m
 
 Name of feature: Map user story
 Estimate of time needed to complete: 20m
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+Start time: 11:35p
+Finish time: 12:25a
+Actual time needed to complete: 50m
+
+Name of feature: Errors user story
+Estimate of time needed to complete: 30m
+Start time: 12:30a
+Finish time: 1:15a
+Actual time needed to complete: 45m

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import CityEntry from './CityEntry.js'
 import LocationCard from './LocationCard.js'
+import ErrorMessage from './ErrorMessage.js'
 
 export default class App extends Component {
   constructor(props) {
@@ -9,7 +10,8 @@ export default class App extends Component {
     this.state = {
       city: '',
       cityObj: {},
-      error: undefined
+      error: undefined,
+      errorMsg: ''
     }
   }
 
@@ -20,9 +22,10 @@ export default class App extends Component {
   getLocationData = async () => {
     try {
       let queryResponse = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
+      console.log(queryResponse);
       this.setState({ cityObj: queryResponse.data[0], error: false });
-    } catch {
-      this.setState({ error: true });
+    } catch (error) {
+      this.setState({ error: true, errorMsg: error.message });
     }
   }
 
@@ -32,7 +35,7 @@ export default class App extends Component {
         <CityEntry formSubmission={this.formSubmission} />
         {
           this.state.error ?
-            <h3>Oops! That's embarrassing. Try another city name, perhaps?</h3> :
+            <ErrorMessage errorMsg={this.state.errorMsg} /> :
             this.state.cityObj.lat ?
               <LocationCard cityObj={this.state.cityObj} /> :
               <p>You never know where a desination search might take you...</p>
@@ -41,4 +44,3 @@ export default class App extends Component {
     )
   }
 }
-
