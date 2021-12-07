@@ -25,5 +25,11 @@ To run this app on your local machine, you will need to obtain your own API keys
 Name of feature: Set up React repo & API keys
 Estimate of time needed to complete: 1h
 Start time: 3:00p
-Finish time: _____
-Actual time needed to complete: _____
+Finish time: 5:00p
+Actual time needed to complete: 2h
+
+Name of feature: Locations user story
+Estimate of time needed to complete: 1h15m
+Start time: 5:05p
+Finish time: 
+Actual time needed to complete:
