@@ -36,6 +36,12 @@ Actual time needed to complete: 6h30m
 
 Name of feature: Map user story
 Estimate of time needed to complete: 20m
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+Start time: 11:35p
+Finish time: 12:25a
+Actual time needed to complete: 50m
+
+Name of feature: Map user story
+Estimate of time needed to complete: 20m
+Start time: 11:35p
+Finish time: 12:25a
+Actual time needed to complete: 50m
