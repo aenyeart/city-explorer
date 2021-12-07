@@ -2,18 +2,22 @@ import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import InputGroup from 'react-bootstrap/InputGroup'
-import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 
 
 
 
 export default class CityEntry extends Component {
+
+  formSubmission = (e) => {
+    e.preventDefault();
+    this.props.formSubmission(e);
+  }
+
   render() {
     return (
       <>
-        <Form>
+        <Form onSubmit={this.formSubmission} >
           <Row className="align-items-center">
             <Col xs="auto">
               <Form.Label htmlFor="inlineFormInput" visuallyHidden>
@@ -23,6 +27,7 @@ export default class CityEntry extends Component {
                 className="mb-2"
                 id="inlineFormInput"
                 placeholder="Enter a city name"
+                name="cityName"
               />
             </Col>
 
