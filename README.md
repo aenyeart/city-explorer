@@ -31,5 +31,11 @@ Actual time needed to complete: 2h
 Name of feature: Locations user story
 Estimate of time needed to complete: 1h15m
 Start time: 5:05p
+Finish time: 11:30p
+Actual time needed to complete: 6h30m
+
+Name of feature: Map user story
+Estimate of time needed to complete: 20m
+Start time: 
 Finish time: 
-Actual time needed to complete:
+Actual time needed to complete: 
