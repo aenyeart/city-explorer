@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import CityEntry from './CityEntry.js'
+import LocationCard from './LocationCard.js'
 
 export default class App extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class App extends Component {
     this.state = {
       city: '',
       cityObj: {},
-      error: false
+      error: undefined
     }
   }
 
@@ -19,7 +20,7 @@ export default class App extends Component {
   getLocationData = async () => {
     try {
       let queryResponse = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
-      this.setState({ cityObj: queryResponse.data[0] });
+      this.setState({ cityObj: queryResponse.data[0], error: false });
     } catch {
       this.setState({ error: true });
     }
@@ -27,19 +28,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
+      <div id="app-wrapper">
         <CityEntry formSubmission={this.formSubmission} />
         {/* will use ternary operator to do conditional rendering */
           this.state.error ?
-            <h3>Oops! That's embarrassing. Try another city name, perhaps.</h3> :
-            this.state.cityObj ?
-              (<ul>
-                <li>City: {this.state.cityObj.display_name}</li>
-                <li>Latitude: {this.state.cityObj.lat}</li>
-                <li>Longitude: {this.state.cityObj.lon}</li>
-              </ul>) : null
+            <h3>Oops! That's embarrassing. Try another city name, perhaps?</h3> :
+            this.state.cityObj.lat ?
+              <LocationCard cityObj={this.state.cityObj} /> :
+              <p>You never know where a desination search might take you...</p>
         }
-      </>
+      </div>
     )
   }
 }
