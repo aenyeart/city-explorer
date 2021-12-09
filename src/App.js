@@ -34,10 +34,10 @@ export default class App extends Component {
   getWeatherData = async () => {
     /* This grabs only the first part of the returned string:
        display_name: "Seattle, King County, Washington, USA" */
-    let locQuery = this.state.cityObj.display_name.split(',')[0];
-    console.log(locQuery);
+    let location = this.state.cityObj.display_name.split(',')[0];
+    console.log(location);
     try {
-      let weatherResponse = await axios.get(`http://localhost:3001/weather?lat=${this.state.cityObj.lat}&lon=${this.state.cityObj.lon}&locQuery=${locQuery}`);
+      let weatherResponse = await axios.get(`http://localhost:3001/weather?lat=${this.state.cityObj.lat}&lon=${this.state.cityObj.lon}&location=${location}`);
       console.log(weatherResponse);
       this.setState({ forecasts: weatherResponse.data });
     } catch (error) {
