@@ -40,6 +40,7 @@ export default class App extends Component {
       let weatherResponse = await axios.get(`http://localhost:3001/weather?lat=${this.state.cityObj.lat}&lon=${this.state.cityObj.lon}&locQuery=${locQuery}`);
       this.setState({ forecasts: weatherResponse.data });
     } catch {
+      this.setState({ forecasts: [] }); // triggers re-render of LocationCard, removing rendered Weather component if no weather data available
       console.log('getWeatherData failed in its endeavors');
     }
   }
