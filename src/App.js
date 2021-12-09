@@ -11,7 +11,8 @@ export default class App extends Component {
       city: '',
       cityObj: {},
       error: undefined,
-      errorMsg: ''
+      errorMsg: '',
+      forecasts: []
     }
   }
 
@@ -51,7 +52,7 @@ export default class App extends Component {
           this.state.error ?
             <ErrorMessage errorMsg={this.state.errorMsg} /> :
             this.state.cityObj.lat ?
-              <LocationCard cityObj={this.state.cityObj} /> :
+              <LocationCard forecasts={this.state.forecasts} cityObj={this.state.cityObj} /> :
               <p>You never know where a desination search might take you...</p>
         }
       </div>
