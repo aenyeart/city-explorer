@@ -9,9 +9,9 @@ export default class Weather extends Component {
       <ListGroup.Item>
         <h3>Local Weather:</h3>
         {
-          this.props.forecasts.map((forecast) => {
+          this.props.forecasts.map((forecast) => { // "key" attribute is to avoid error re: children in lists without keys 
             return (
-              <div>
+              <div > 
                 <h4>{forecast.date}</h4>
                 <p>{forecast.description}</p>
               </div>
