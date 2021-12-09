@@ -20,6 +20,8 @@ To run this app on your local machine, you will need to obtain your own API keys
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
+12-08-2021 10:30pm - Application now displays mock weather data
+
 ## Credit and Collaborations
 
 - Data flowchart created in collaboration with [Jacob Choi](https://github.com/Choij12)

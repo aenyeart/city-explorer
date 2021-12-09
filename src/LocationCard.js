@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+import Weather from './Weather.js'
 
 
 export default class LocationCard extends Component {
@@ -18,6 +19,7 @@ export default class LocationCard extends Component {
             <ListGroup variant="flush">
               <ListGroup.Item>Latitude: {this.props.cityObj.lat}</ListGroup.Item>
               <ListGroup.Item>Longitude: {this.props.cityObj.lon}</ListGroup.Item>
+              {this.props.forecasts.length > 0 && <Weather forecasts={this.props.forecasts} />}
             </ListGroup>
           </Card.Body>
         </Card>
