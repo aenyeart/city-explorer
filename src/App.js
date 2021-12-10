@@ -3,6 +3,7 @@ import axios from 'axios'
 import CityEntry from './CityEntry.js'
 import LocationCard from './LocationCard.js'
 import ErrorMessage from './ErrorMessage.js'
+import Movies from './Movies.js'
 
 export default class App extends Component {
   constructor(props) {
@@ -56,12 +57,12 @@ export default class App extends Component {
   getMoviesData = async () => {
     let location = this.state.cityObj.display_name.split(',')[0];
     let url = `${process.env.REACT_APP_SERVER_URL}/movies?location=${location}`;
-
     try {
       let moviesResponse = await axios.get(url);
-      console.log(moviesResponse.data);
+      this.setState({ movies: moviesResponse.data });
+      console.log(this.state.movies[0]);
     } catch (e) {
-
+      console.error(e);
     }
   }
 
@@ -69,13 +70,12 @@ export default class App extends Component {
     return (
       <div id="app-wrapper">
         <CityEntry formSubmission={this.formSubmission} />
-        {
-          this.state.error ?
-            <ErrorMessage errorMsg={this.state.errorMsg} /> :
-            this.state.cityObj.lat ?
-              <LocationCard forecasts={this.state.forecasts} cityObj={this.state.cityObj} /> :
-              <p>You never know where a desination search might take you...</p>
-        }
+        {this.state.error && <ErrorMessage errorMsg={this.state.errorMsg} />}
+        {this.state.cityObj.lat ?
+          <LocationCard forecasts={this.state.forecasts} cityObj={this.state.cityObj} /> :
+          <p>You never know where a desination search might take you...</p>}
+        {this.state.movies.length > 0 && <Movies movies={this.state.movies} />}
+
       </div>
     )
   }
