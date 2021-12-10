@@ -22,6 +22,7 @@ To run this app on your local machine, you will need to obtain your own API keys
 
 12-08-2021 10:30pm - Application now displays mock weather data
 12-09-2021 9:00pm - Successfully gets movie data from city-explorer-api
+12-09-2021 10:20pm - Renders movie data from city-explorer-api
 
 
 ## Credit and Collaborations
