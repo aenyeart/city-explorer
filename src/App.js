@@ -26,7 +26,6 @@ export default class App extends Component {
   getLocationData = async () => {
     try {
       let queryResponse = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
-      console.log(queryResponse.data[0]);
       this.setState({ cityObj: queryResponse.data[0], error: false }, this.getOtherData);
     } catch (error) {
       this.setState({ error: true, errorMsg: error.message });
@@ -59,7 +58,6 @@ export default class App extends Component {
     try {
       let moviesResponse = await axios.get(url);
       this.setState({ movies: moviesResponse.data });
-      console.log(this.state.movies[0]);
     } catch (e) {
       console.error(e);
     }
