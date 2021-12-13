@@ -1,28 +1,26 @@
 import React, { Component } from 'react'
-import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
-import ListGroupItem from 'react-bootstrap/ListGroupItem'
-
+import Carousel from 'react-bootstrap/Carousel'
 
 export default class Movie extends Component {
   render() {
     return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-        {/* <p>{this.props.movie.image_url}</p> */}
-        <Card.Body>
-          <Card.Title>{this.props.movie.title}</Card.Title>
-          <Card.Text>
-            {this.props.movie.overview}
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroupItem>Released: {this.props.movie.release_date}</ListGroupItem>
-          <ListGroupItem>Popularity rating: {this.props.movie.popularity}</ListGroupItem>
-          <ListGroupItem>Average audience rating: {this.props.movie.vote_average} / 10</ListGroupItem>
-          <ListGroupItem>Total audience ratings: {this.props.movie.vote_count}</ListGroupItem>
-        </ListGroup>
-      </Card>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="holder.js/800x400?text=First slide&bg=373940"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3>{this.props.movie.title}</h3>
+          <p>{this.props.movie.overview}</p>
+          <p>Released: {this.props.movie.release_date}</p>
+          <p>Popularity rating: {this.props.movie.popularity}</p>
+          <p>Average audience rating / 10: {this.props.movie.vote_average}</p>
+          <p>Total audience ratings: {this.props.movie.vote_count}</p>
+
+        </Carousel.Caption>
+      </Carousel.Item>
     )
   }
 }
+
