@@ -7,7 +7,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 export default class Movie extends Component {
   render() {
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '11rem' }}>
         <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
         {/* <p>{this.props.movie.image_url}</p> */}
         <Card.Body>
