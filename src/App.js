@@ -38,15 +38,13 @@ export default class App extends Component {
     this.getMoviesData();
   }
 
-
   getWeatherData = async () => {
     let location = this.state.cityObj.display_name.split(',')[0];
     /* This grabs the first part of the returned display_name: "Seattle, King County, Washington, USA" */
     let url = `${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.state.cityObj.lat}&lon=${this.state.cityObj.lon}&location=${location}`;
-
+   
     try {
       let weatherResponse = await axios.get(url);
-
       this.setState({ forecasts: weatherResponse.data });
     } catch (error) {
       console.log(error);
