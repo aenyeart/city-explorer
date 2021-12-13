@@ -9,7 +9,6 @@ export default class LocationCard extends Component {
 
     let locationMap = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.cityObj.lat},${this.props.cityObj.lon}&zoom=12&size=288x288`;
 
-
     return (
       <>
         <Card style={{ width: '20rem' }}>
