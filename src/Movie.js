@@ -7,12 +7,12 @@ export default class Movie extends Component {
       <>
         <img
           className="d-block w-100"
-          src="https://place-hold.it/800x500/666"
+          src="https://place-hold.it/800x550/666"
           alt="First slide"
         />
         <Carousel.Caption>
           <h3>{this.props.movie.title}</h3>
-          <p>{this.props.movie.overview}</p>
+          <p>{this.props.movie.overview.slice(0,350) + '...'}</p>
           <p>Released: {this.props.movie.release_date}</p>
           <p>Popularity rating: {this.props.movie.popularity}</p>
           <p>Average audience rating / 10: {this.props.movie.vote_average}</p>
