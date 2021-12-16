@@ -8,7 +8,11 @@ export default class Movies extends Component {
     return (
       <Carousel slide={false} fade={false}>
 
-        {this.props.movies.map((movie, idx) => <Carousel.Item key={`movie${idx}`} > <Movie movie={movie} /> </Carousel.Item>)}
+        {this.props.movies.map((movie, idx) => (
+          <Carousel.Item key={`movie${idx}`} >
+            <Movie movie={movie} />
+          </Carousel.Item>)
+        )}
 
       </Carousel>
     )
