@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
 import ListGroup from 'react-bootstrap/ListGroup'
+import WeatherDay from './WeatherDay'
 
 export default class Weather extends Component {
 
   render() {
-
     return (
-      <ListGroup.Item>
+      <>
         <h3>Local Weather:</h3>
         {
-          this.props.forecasts.map((forecast, idx) => { // "key" attribute is to avoid error re: children in lists without keys 
+          this.props.forecasts.map((forecast, idx) => { 
             return (
-              <div key={`forecast${idx}`}> 
-                <h4>{forecast.date}</h4>
-                <p>{forecast.description}</p>
-              </div>
-            )
+              <ListGroup.Item key={`forecast${idx}`}> 
+                <WeatherDay forecast={forecast}/>
+              </ListGroup.Item> );
           })
         }
-      </ListGroup.Item>
+      </>
     )
   }
 }

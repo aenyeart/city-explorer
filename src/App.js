@@ -4,6 +4,7 @@ import CityEntry from './CityEntry.js'
 import LocationCard from './LocationCard.js'
 import ErrorMessage from './ErrorMessage.js'
 import Movies from './Movies.js'
+import Weather from './Weather'
 
 export default class App extends Component {
   constructor(props) {
@@ -33,18 +34,20 @@ export default class App extends Component {
   }
 
   getOtherData = () => {
-    this.getWeatherData(); // Question: Why isn't this immediately invoked?
+    this.getWeatherData();
     this.getMoviesData();
   }
 
   getWeatherData = async () => {
     let location = this.state.cityObj.display_name.split(',')[0];
     /* This grabs the first part of the returned display_name: "Seattle, King County, Washington, USA" */
+
     let url = `${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.state.cityObj.lat}&lon=${this.state.cityObj.lon}&location=${location}`;
-   
+
     try {
       let weatherResponse = await axios.get(url);
-      this.setState({ forecasts: weatherResponse.data });
+      let weeklyForecast = weatherResponse.data.slice(0, 7);
+      this.setState({ forecasts: weeklyForecast });
     } catch (error) {
       console.log(error);
       this.setState({ forecasts: [] }); // re-renders LocationCard, removing Weather component if no weather data
@@ -66,13 +69,30 @@ export default class App extends Component {
   render() {
     return (
       <div id="app-wrapper">
-        <CityEntry formSubmission={this.formSubmission} />
-        {this.state.error && <ErrorMessage errorMsg={this.state.errorMsg} />}
-        {this.state.cityObj.lat ?
-          <LocationCard forecasts={this.state.forecasts} cityObj={this.state.cityObj} /> :
-          <p>You never know where a desination search might take you...</p>}
-        {this.state.movies.length > 0 && <Movies movies={this.state.movies} />}
-
+        <div id='city-wrapper'>
+          <CityEntry formSubmission={this.formSubmission} />
+          {
+            this.state.error &&
+            <ErrorMessage errorMsg={this.state.errorMsg} />
+          }
+          {
+            this.state.cityObj.lat ?
+              <LocationCard cityObj={this.state.cityObj} /> :
+              <p>You never know where a desination search might take you...</p>
+          }
+        </div>
+        {
+          this.state.forecasts.length > 0 &&
+          <div id='weather-wrapper'>
+            <Weather forecasts={this.state.forecasts} />
+          </div>
+        }
+        {
+          this.state.movies.length > 0 &&
+          <div id='movie-wrapper'>
+            <Movies movies={this.state.movies} />
+          </div>
+        }
       </div>
     )
   }
