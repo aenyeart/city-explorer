@@ -44,7 +44,8 @@ export default class App extends Component {
    
     try {
       let weatherResponse = await axios.get(url);
-      this.setState({ forecasts: weatherResponse.data });
+      let weeklyForecast = weatherResponse.data.slice(0,7);
+      this.setState({ forecasts: weeklyForecast });
     } catch (error) {
       console.log(error);
       this.setState({ forecasts: [] }); // re-renders LocationCard, removing Weather component if no weather data

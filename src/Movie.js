@@ -4,10 +4,10 @@ import Carousel from 'react-bootstrap/Carousel'
 export default class Movie extends Component {
   render() {
     return (
-      <Carousel.Item>
+      <>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
+          src="https://place-hold.it/800x500/666"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -19,7 +19,7 @@ export default class Movie extends Component {
           <p>Total audience ratings: {this.props.movie.vote_count}</p>
 
         </Carousel.Caption>
-      </Carousel.Item>
+      </>
     )
   }
 }
